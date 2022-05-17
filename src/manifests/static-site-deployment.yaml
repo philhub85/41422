@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: static-site-deployment
+  labels:
+    app: static-site-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: static-site-deployment
+  template:
+    metadata:
+      labels:
+        app: static-site-deployment
+    spec:
+      containers:
+      - name: static-site-deployment 
+        image: phdocker85/41422:v5
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
